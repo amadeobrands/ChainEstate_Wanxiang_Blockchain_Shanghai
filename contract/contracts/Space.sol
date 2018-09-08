@@ -47,6 +47,7 @@ contract Space is ERC721Token("ChainEstate Space Token", "CEST") {
 
         uint32 id = uint32(spaces.push(space) - 1);
         _mint(msg.sender, id);
+        _setTokenURI(id, _name);
         return(id);
     }
 
@@ -93,6 +94,7 @@ contract Space is ERC721Token("ChainEstate Space Token", "CEST") {
         spaces[id].status = 1;
         spaces[id].leasee = msg.sender;
         spaces[id].leaseEnd = leaseEnd;
+        addTokenTo(msg.sender, id);
     }
 
     /**
@@ -108,6 +110,7 @@ contract Space is ERC721Token("ChainEstate Space Token", "CEST") {
                 spaces[i].leaseEnd = "";
                 if (spaces[i].parent == 0xffffffff) {
                     spaces[i].status = 0;
+                    removeTokenFrom(ownerOf(i), i);
                 }
                 else {
                     destroySpace(i);
