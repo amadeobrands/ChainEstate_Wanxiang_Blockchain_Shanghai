@@ -15,6 +15,11 @@
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 
         <script src="assets/js/modernizr.min.js"></script>
+          <!-- axios -->
+          <!-- https://github.com/axios/axios -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+         <!-- axios END -->
+        <script src="../../factom/api.js"></script>
 
     </head>
 
@@ -277,16 +282,19 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link active">
-                                                    GALLERY
+                                                    Digital Assets Overview
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link">
-                                                    SETTINGS
+                                                    Settings
                                                 </a>
                                             </li>
                                         </ul>
-                                        <div class="tab-content">
+
+
+
+                                        <div class="tab-content" id="vue_buildings_list">
                                             <div class="tab-pane" id="home">
                                                 <p class="m-b-5">Office Building Moganshan Road Chinese Building Development – design by David Chipperfield Architectspage updated 22 Oct 2016 with new images ; 24 Nov 2014  Office Building Moganshan Road in Hangzho Location: Hangzhou, China Design: David Chipperfield Architects The ten-storey office building is located in a diversely built area on Moganshan Road near Hangzhou’s tranquil Shuyhan Park.</p>
 
@@ -322,73 +330,69 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="tab-pane active" id="profile">
-                                                <div class="row">
-                                                    <div class="col-sm-4">
-                                                        <div class="gal-detail thumb">
-                                                            <a href="#" class="image-popup" title="Screenshot-2">
-                                                                <img src="assets/images/gallery/1.jpg" class="thumb-img" alt="work-thumbnail">
-                                                            </a>
-                                                            <h4 class="text-center">Gallary Image</h4>
-                                                            <div class="ga-border"></div>
-                                                            <p class="text-muted text-center"><small>Photography</small></p>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="col-sm-4">
-                                                        <div class="gal-detail thumb">
-                                                            <a href="#" class="image-popup" title="Screenshot-2">
-                                                                <img src="assets/images/gallery/2.jpg" class="thumb-img" alt="work-thumbnail">
-                                                            
-                                                            <h4 class="text-center">Gallary Image</h4>
-                                                            <div class="ga-border"></div>
-                                                            <p class="text-muted text-center"><small>Photography</small></p>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                                <div class="row" v-for="(value,key) in asset_details">
 
-                                                    <div class="col-sm-4">
-                                                        <div class="gal-detail thumb">
-                                                            <a href="#" class="image-popup" title="Screenshot-2">
-                                                                <img src="assets/images/gallery/3.jpg" class="thumb-img" alt="work-thumbnail">
-                                                            </a>
-                                                            <h4 class="text-center">Gallary Image</h4>
-                                                            <div class="ga-border"></div>
-                                                            <p class="text-muted text-center"><small>Photography</small></p>
+                                                    <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
+                                                        <div class="card" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="background-color: #8e8271;height: 30px;margin: 5px ">
                                                         </div>
-                                                    </div>
+<!-- Modal Asset Details-->
+<div class="modal fade applyAp" :id="'AssetDetails'+key+index1" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModal1Label1">Asset Details</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
 
-                                                    <div class="col-sm-4">
-                                                        <div class="gal-detail thumb">
-                                                            <a href="#" class="image-popup" title="Screenshot-2">
-                                                                <img src="assets/images/gallery/4.jpg" class="thumb-img" alt="work-thumbnail">
-                                                            </a>
-                                                            <h4 class="text-center">Gallary Image</h4>
-                                                            <div class="ga-border"></div>
-                                                            <p class="text-muted text-center"><small>Photography</small></p>
-                                                        </div>
-                                                    </div>
+            <div class="row">Area in m²: {{value[index1]['m2']}}</div>
+              <div class="row">{{'prise in m²'}}</div>
+              <div class="row">{{'some other data'}}</div>
 
-                                                    <div class="col-sm-4">
-                                                        <div class="gal-detail thumb">
-                                                            <a href="#" class="image-popup" title="Screenshot-2">
-                                                                <img src="assets/images/gallery/5.jpg" class="thumb-img" alt="work-thumbnail">
-                                                            </a>
-                                                            <h4 class="text-center">Gallary Image</h4>
-                                                            <div class="ga-border"></div>
-                                                            <p class="text-muted text-center"><small>Photography</small></p>
-                                                        </div>
-                                                    </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" :data-target="'#SplitAsset'+key+index1">Define Asset Split</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal END -->
+<!-- Modal Split Assset-->
+<div class="modal fade applyAp" :id="'SplitAsset'+key+index1" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModal1Label">Splitting the the digital asset</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
 
-                                                    <div class="col-sm-4">
-                                                        <div class="gal-detail thumb">
-                                                            <a href="#" class="image-popup" title="Screenshot-2">
-                                                                <img src="assets/images/gallery/6.jpg" class="thumb-img" alt="work-thumbnail">
-                                                            </a>
-                                                            <h4 class="text-center">Gallary Image</h4>
-                                                            <div class="ga-border"></div>
-                                                            <p class="text-muted text-center"><small>Photography</small></p>
-                                                        </div>
+            <div class="input-group-prepend"> </div>
+            <input type="text" class="form-control" placeholder="m²" >
+            </input>
+            <input type="text" class="form-control" v-model="split_area" placeholder="price per m²" >
+            </input>
+            <p style="color:red;">Area before split: {{value[index1]['m2']}}</p>
+              <p style="color:red;">Area after split: {{value[index1]['m2'] - split_area}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="performe_split(key,index1,{'m2':split_area})">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abort</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal END -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -569,8 +573,46 @@
         </script>
 
         <!-- Plugins  -->
+        <script src="https://unpkg.com/marked@0.3.6"></script>
+        <script src="https://unpkg.com/lodash@4.16.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
         <script src="assets/js/bootstrap.min.js"></script>
+<script>
+    var acts_view = new Vue({
+      el: '#vue_buildings_list',
+      data: {
+        buildings_list :[[2,1],[0,2],[0]],
+        asset_details : {
+          0: [{'m2': 1000}, {'m2': 1002}],
+
+          1: [{'m2': 2000}, {'m2': 1003}],
+
+          2: [{'m2': 3000}, {'m2': 1004}],
+        },
+        split_area:0,
+      },
+      methods: {
+        performe_split:function (floor,idx,new_details) {
+          this.asset_details[floor].push(
+              new_details
+
+
+          );
+          get_info_factom({
+            url: '5c173b601be14c6210b3115f8e7a6bf3',
+          }).then(function (response) {
+            let data = response.data;
+            console.log('factom:',data);
+          }).catch(error => {
+            console.log(error);
+          });
+          this.asset_details[floor][idx]['m2']=new_details['m2']
+        }
+      }
+    })
+</script>
     </body>
 </html>
