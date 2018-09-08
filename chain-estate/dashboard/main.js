@@ -3,6 +3,8 @@ import { default as contract } from 'truffle-contract';
 
 window.ChainEstateApp = {
     buildingContract: null,
+    buildingAddress: null,
+    buildingOwner: null,
     account: null,
 
     InitPage: function() {
@@ -37,47 +39,63 @@ window.ChainEstateApp = {
 
         // Load contract
         var p = [];
-        p.push(this.GetContract('../contracts/Building.json', c => {self.dripToken=c}));
-        Promise.all(p);
+        p.push(this.GetContract('../contracts/Building.json', c => {self.buildingContract=c}));
+        Promise.all(p).then(function() {
+            return self.buildingContract.deployed();
+        }).then(function(inst) {
+            self.buildingAddress = inst.address;
+            console.log("Building Contract At: " + inst.address);
+
+            return inst.owner.call();
+            
+        }).then(function(value) {
+            self.buildingOwner = value.valueOf();
+            console.log("Building Owner: " + self.buildingOwner);
+
+            self.ReloadData();
+        });
     },
 
     RefreshAccount: function(acct) {
-        self = this;
+        if (acct != this.account) {
+            console.log("Account Change: " + acct);
+            this.account = acct;
+            this.ReloadData();
+        }
     },
 
-    CheckUser: function() {
+    ReloadData: function() {
         self = this;
-
-        console.log("Getting Account");
 
         web3.eth.getAccounts().then(function(accs) {
             if (accs.length > 0) {
                 self.account = accs[0].toLowerCase();
-                if (self.account == self.buildingContract)
-                    CheckRedirect(0);
+                if (self.account == self.buildingOwner)
+                    self.CheckRedirect(0);
                 else
-                    CheckRedirect(1);
-            } else
-                CheckRedirect(2);
-
+                    self.CheckRedirect(1);
+            } else {
+                self.account = null;
+                self.CheckRedirect(2);
+            }
         }).catch(function(error) {
             console.error(error);
             self.account = null;
-            CheckRedirect(2);
+            self.CheckRedirect(2);
         });
-    
     },
 
     CheckRedirect: function(state) {
+        console.log("Page State: " + state);
         if (state == 0) {
-            if (!window.location.contains("real-estate-broker"))
-                window.location = "/dashboard/real-estate-broker.html";
+            if (!window.location.href.includes("real-estate-broker"))
+                window.location.replace("./real-estate-broker.html");
         } else if (state == 1) {
-            if (!window.location.contains("leaser"))
-                window.location = "/dashboard/leaser.html";
+            if (!window.location.href.includes("leaser"))
+                window.location.replace("./leaser.html");
         } else {
-            if (!window.location.contains("need-metamask"))
-                window.location = "/dashboard/need-metamask.html";
+            if (!window.location.href.includes("need-metamask"))
+                window.location.replace("./need-metamask.html");
         }
     },
 
