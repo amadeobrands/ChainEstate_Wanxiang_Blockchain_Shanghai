@@ -1,6 +1,6 @@
 <h1>Wanxiang Blockchain Hackathon 2018</h1>
 
-<h2>Chain Estate</h2>
+<img src="https://raw.githubusercontent.com/amadeobrands/ChainEstate/master/art-work/chain-estate.png">
 
 <Strong>Project Name:</strong>
 Chain Estate
