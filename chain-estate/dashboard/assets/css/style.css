@@ -6073,3 +6073,14 @@ File: Responsive
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+.logo {
+    color: #323b44 !important;
+    font-size: 20px;
+    font-weight: 700;
+    max-width: 126px;
+    letter-spacing: .05em;
+    line-height: 70px;
+    text-transform: uppercase;
+}
+
