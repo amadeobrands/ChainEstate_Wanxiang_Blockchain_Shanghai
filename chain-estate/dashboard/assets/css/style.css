@@ -6084,3 +6084,8 @@ File: Responsive
     text-transform: uppercase;
 }
 
+.space-inucator {
+  width: 100px;
+  text-align: center;
+  
+}

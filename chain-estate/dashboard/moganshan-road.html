@@ -35,7 +35,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="#"><img class="navbar-brand logo" src="assets/images/chain-estate-dark.png"></a>
+                        <a href="real-estate-broker.html"><img class="navbar-brand logo" src="assets/images/chain-estate-dark.png"></a>
                     </div>
                 </div>
 
@@ -285,11 +285,6 @@
                                                     Digital Assets Overview
                                                 </a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link">
-                                                    Settings
-                                                </a>
-                                            </li>
                                         </ul>
 
 
@@ -297,38 +292,6 @@
                                         <div class="tab-content" id="vue_buildings_list">
                                             <div class="tab-pane" id="home">
                                                 <p class="m-b-5">Office Building Moganshan Road Chinese Building Development – design by David Chipperfield Architectspage updated 22 Oct 2016 with new images ; 24 Nov 2014  Office Building Moganshan Road in Hangzho Location: Hangzhou, China Design: David Chipperfield Architects The ten-storey office building is located in a diversely built area on Moganshan Road near Hangzhou’s tranquil Shuyhan Park.</p>
-
-                                                <div class="m-t-30">
-                                                    <h5>Experience</h5>
-
-                                                    <div class=" p-t-10">
-                                                        <h6 class="text-primary m-b-5">Lead designer / Developer</h6>
-                                                        <p class="">websitename.com</p>
-                                                        <p><b>2010-2015</b></p>
-
-                                                        <p class="text-muted font-13 m-b-0">Lorem Ipsum is simply dummy text
-                                                            of the printing and typesetting industry. Lorem Ipsum has
-                                                            been the industry's standard dummy text ever since the
-                                                            1500s, when an unknown printer took a galley of type and
-                                                            scrambled it to make a type specimen book.
-                                                        </p>
-                                                    </div>
-
-                                                    <hr>
-
-                                                    <div class="">
-                                                        <h6 class="text-primary m-b-5">Senior Graphic Designer</h6>
-                                                        <p class="">coderthemes.com</p>
-                                                        <p><b>2007-2009</b></p>
-
-                                                        <p class="text-muted font-13">Lorem Ipsum is simply dummy text
-                                                            of the printing and typesetting industry. Lorem Ipsum has
-                                                            been the industry's standard dummy text ever since the
-                                                            1500s, when an unknown printer took a galley of type and
-                                                            scrambled it to make a type specimen book.
-                                                        </p>
-                                                    </div>
-                                                </div>
                                             </div>
 
                                             <div class="tab-pane active" id="profile">
@@ -336,8 +299,26 @@
                                                 <div class="row" v-for="(value,key) in asset_details">
 
                                                     <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
-                                                        <div class="card" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="background-color: #8e8271;height: 30px;margin: 5px ">
+                                                        <div class="card" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="background-color: rgb(226, 138, 6); height: 60px; margin: 5px; border: 2px solid rgb(117, 26, 26);">
                                                         </div>
+
+
+                                                        <!-- 
+
+
+
+
+
+                                                    <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
+                                                        <div class="card" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="background-color: #3aa17e; height: 60px; margin: 5px; border: 2px solid rgb(1, 199, 132)">
+                                                        </div>
+
+
+
+                                                        -->
+
+
+
 <!-- Modal Asset Details-->
 <div class="modal fade applyAp" :id="'AssetDetails'+key+index1" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1">
   <div class="modal-dialog" role="document">
@@ -591,6 +572,22 @@
           1: [{'m2': 2000}, {'m2': 1003}],
 
           2: [{'m2': 3000}, {'m2': 1004}],
+
+          3: [{'m2': 3000}, {'m2': 1004}],
+
+          4: [{'m2': 3000}, {'m2': 1004}],
+
+          5: [{'m2': 3000}, {'m2': 1004}],
+
+          6: [{'m2': 3000}, {'m2': 1004}],
+
+          7: [{'m2': 3000}, {'m2': 1004}],
+
+          8: [{'m2': 3000}, {'m2': 1004}],
+
+          9: [{'m2': 3000}, {'m2': 1004}],
+
+          10: [{'m2': 3000}, {'m2': 1004}],
         },
         split_area:0,
       },
