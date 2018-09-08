@@ -16,4 +16,4 @@ Smart Contract
 Blockchain
 
 <Strong>Concept:</Strong>
-Since the hackaton is for the smart city China is gonna make ... we made a model to tokenize office space ... So you have an building and instead of middle man selling space we are now building smart contracts with embedded KYC and whitelist to then create more liquid real estate market. Each project/building will have it's own ERC20 token and then each floor will have it's own ERC721 to seperate ownership etc ... 
+During the Wanxiang Blockchain Hackathon in Shanghai, we made a model to tokenize office space. Instead of expansive and insecure Agents selling office space we have build an smart contracts with embedded KYC and whitelist that will enable a more liquid real estate market. Each project/building will have it's own ERC20 token and then each floor will have its own ERC721 to separate ownership, better control of open space and easy budget management.
