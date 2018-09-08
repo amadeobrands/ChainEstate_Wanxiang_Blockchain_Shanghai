@@ -14,12 +14,32 @@ contract Building is MintableToken {
     int public numberFloors;
     Space public spaces;
 
-    constructor (string _name, string addr, string url, uint256 floors) public {
+    /**
+    * @dev Constructor that also creates the space ERC721 contract
+    */
+    constructor (string _name, string addr, string url) public {
         buildingName = _name;
         buildingAddress = addr;
         pictureUrl = url;
 
         spaces = new Space();
-        spaces.createSpace(floors-1, "1F", 4000, 45);
     }
+
+    /**
+    * @dev Retrieve the ERC721 space contract associated with the building. 
+    *      The contract holds all ERC721 tokens for the building
+    */
+    function getSpaceContract() view public returns(address) {
+        return spaces;
+    }
+
+    /**
+    * @dev Add a set of floors to the building. This can be called multiple times to add floors with different size or price 
+    */
+    function addFloors(uint32 floors, uint32 size, uint32 price, uint32 startFloor) onlyOwner public {
+        for (uint32 i = 0; i < floors; i++) {
+            spaces.createSpace(startFloor + i, "Unit", size, price);
+        }
+    }
+
 }
