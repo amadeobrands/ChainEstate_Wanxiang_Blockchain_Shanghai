@@ -1,0 +1,13 @@
+/* ===========
+   Form Uploads
+ =============*/
+.dropzone {
+  min-height: 230px;
+  border: 2px dashed lighten($dark,10%);
+  border-radius: 6px;
+  background-color: lighten($dark,2%);
+
+  .dz-message {
+    font-size: 30px;
+  }
+}
