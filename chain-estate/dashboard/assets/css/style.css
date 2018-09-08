@@ -6084,8 +6084,8 @@ File: Responsive
     text-transform: uppercase;
 }
 
-.space-inucator {
-  width: 100px;
-  text-align: center;
-  
+.user-thumb img {
+    height: 160px;
+    margin: 0 auto;
+    width: 160px;
 }
