@@ -7,7 +7,7 @@
         "start": "webpack-dev-server",
         "build": "webpack",
         "prod": "lite-server",
-        "deploy": "scp -r build/* chainestate:/home/chainestate/www"
+        "deploy": "scp -r build/* chainestate:/root/www"
     },
     "repository": {},
     "author": "Ted Wu",
