@@ -4,7 +4,6 @@ var current_host = window.location.hostname;
 var mvpi_api = "http://" + current_host;
 
 axios.defaults.headers.get = {
-  'user-key': '2a1efdc85c57919d2495bd50aa8599b50ed1391dc881623ad3fa2363c932287a',
   'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': 'http://27.115.27.218',
   'Access-Control-Allow-Credentials': 'true',
