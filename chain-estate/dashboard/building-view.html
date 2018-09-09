@@ -24,10 +24,11 @@
     </head>
 
 
-    <body class="fixed-left">
+    <body class="fixed-left" >
 
         <!-- Begin page -->
-        <div id="wrapper">
+
+        <div id="wrapper" >
 
             <!-- Top Bar Start -->
             <div class="topbar">
@@ -251,6 +252,7 @@
 
                                             <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">China</span></p>
                                         </div>
+                                        <div><a target="_blank" href="https://rinkeby.etherscan.io/token/0x3615f89082fb3877dcccfd7f6a906d846e78e3ca">View CEBT on EtherScan</a></div>
 
                                         <ul class="social-links list-inline m-t-30">
                                             <li class="list-inline-item">
@@ -271,34 +273,34 @@
                             </div> <!-- end col -->
 
 
-                            <div class="col-lg-8 col-xl-9">
+                            <div class="col-lg-8 col-xl-9" id="vue_buildings_list">
                                 <div class="">
                                     <div class="card-box">
                                         <ul class="nav nav-tabs tabs-bordered">
                                             <li class="nav-item">
-                                                <a href="#home" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                                <a href="#home" data-toggle="tab" aria-expanded="false" class="nav-link active show">
                                                     About the building
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link active">
+                                                <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link">
                                                     Digital Assets Overview
                                                 </a>
                                             </li>
                                         </ul>
 
 
-                                        <div class="tab-content" id="vue_buildings_list">
+                                        <div class="tab-content">
                                             <div class="tab-pane active" id="home">
                                                 <p class="m-b-5">Office Building Moganshan Road Chinese Building Development – design by David Chipperfield Architectspage updated 22 Oct 2016 with new images ; 24 Nov 2014  Office Building Moganshan Road in Hangzho Location: Hangzhou, China Design: David Chipperfield Architects The ten-storey office building is located in a diversely built area on Moganshan Road near Hangzhou’s tranquil Shuyhan Park.</p>
                                             </div>
 
-                                            <div class="tab-pane active" id="profile">
+                                            <div class="tab-pane" id="profile">
 
                                                 <div class="row" v-for="(value,key) in asset_details">
 
-                                                    <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
-                                                        <div v-bind:class="['space_vacant', 'space_general', 'card', 'pt-1', 'pl-3']" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="height: 60px; margin: 5px; border: 2px solid rgb(0, 0, 0);">
+                                                    <div :class="'col-md-'+(value1.size/200)"   v-for="(value1,index1) in asset_details[key]">
+                                                        <div v-bind:class="[(value1.status == 0) ? 'space_vacant' : (value1.status == 1) ? 'space_occupied' : 'space_sublet', 'space_general', 'card', 'pt-1', 'pl-3']" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="height: 60px; margin: 5px; border: 2px solid rgb(0, 0, 0);">
                                                         {{"Floor " + value1.floor + " (" + value1.size + " square meters)"}}<br/>
                                                         {{"Status: " + ((value1.status == 0) ? "Vacant" : (value1.status == 1) ? "Occupied" : "Sublet Available")}}
                                                         </div>
