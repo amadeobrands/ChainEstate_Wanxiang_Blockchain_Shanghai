@@ -102,6 +102,9 @@ window.ChainEstateApp = {
 
     CheckRedirect: function(state) {
         console.log("Page State: " + state);
+        if (window.location.href.includes("building-view"))
+            return;
+
         if (state == 0) {
             if (!window.location.href.includes("real-estate-broker"))
                 window.location.replace("./real-estate-broker.html");
@@ -186,15 +189,50 @@ window.ChainEstateApp = {
             return Promise.all(p);
         }).then(function() {
             console.log(self.spaces);
+            self.PopulateSpaces();
         }).catch(function(err) {
             console.error(err);
         });
     },
 
+    PopulateSpaces: function() {
+        self = this;
+
+        var ad = {};
+        this.spaces.forEach (function(item) {
+            if (!ad[item.floor])
+                ad[item.floor] = [];
+            ad[item.floor].push(item);
+        });
+
+        console.log(ad);
+
+        var acts_view = new Vue(
+            {
+                el: '#vue_buildings_list',
+                data: {
+                    asset_details : ad,
+                    space_address : self.spaceAddress,
+                    split_area:0,
+                    split_price:0
+                },
+                methods: {
+                    lease_space: function(id) {
+                        self.StartLease(id, "");
+                    },
+                    performe_split: function (id,size,price) {
+                        self.SplitSpace(id, size, price);
+                    }
+                }
+            });
+    },
+
     StartLease: function(id, enddate) {
+        self = this;
         console.log("Starting lease: " + id);
 
-        self.spaceContract.at(self.spaceAddress).startLease(id, "2019-09-10").then(function() {
+        self.spaceContract.at(self.spaceAddress).startLease(id, "2019-09-10", {from: self.account}).then(function() {
+            console.log("Transaction Done");
             GetAllSpaces();
         }).catch(function(err) {
             console.error(err);
@@ -202,9 +240,10 @@ window.ChainEstateApp = {
     },
 
     SplitSpace: function(id, size, price) {
+        self = this;
         console.log("Splitting space: " + id);
 
-        self.spaceContract.at(self.spaceAddress).splitSpace(id, size, price).then(function(newid) {
+        self.spaceContract.at(self.spaceAddress).splitSpace(id, size, price, {from: self.account}).then(function(newid) {
             console.log("New space created: " + newid.valueOf());
             GetAllSpaces();
         }).catch(function(err) {
@@ -214,3 +253,36 @@ window.ChainEstateApp = {
 };
 
 ChainEstateApp.InitPage();
+
+/*
+var acts_view = new Vue(
+    {
+        el: '#vue_buildings_list',
+        data: {
+        buildings_list :[[2,1],[0,2],[0]],
+        asset_details : {
+            0: [{'m2': 1000}, {'m2': 1002}],
+            1: [{'m2': 2000}, {'m2': 1003}],
+            2: [{'m2': 3000}, {'m2': 1004}],
+            3: [{'m2': 3000}, {'m2': 1004}],
+            4: [{'m2': 3000}, {'m2': 1004}],
+            5: [{'m2': 3000}, {'m2': 1004}],
+            6: [{'m2': 3000}, {'m2': 1004}],
+            7: [{'m2': 3000}, {'m2': 1004}],
+            8: [{'m2': 3000}, {'m2': 1004}],
+            9: [{'m2': 3000}, {'m2': 1004}],
+            10: [{'m2': 3000}, {'m2': 1004}],
+        },
+        split_area:0,
+        },
+        methods: {
+        performe_split:function (floor,idx,new_details) {
+            this.asset_details[floor].push(
+                new_details
+            );
+
+            this.asset_details[floor][idx]['m2']=new_details['m2']
+        }
+        }
+    });
+*/

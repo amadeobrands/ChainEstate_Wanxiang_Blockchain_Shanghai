@@ -4,6 +4,23 @@ Author: Coderthemes
 Email: coderthemes@gmail.com
 File: Main Css
 */
+
+.space_general {
+  color: #012233;
+}
+
+.space_vacant {
+  background-color: #88f523 !important;
+}
+
+.space_occupied {
+  background-color: #e9780e !important;
+}
+
+.space_sublet {
+  background-color: #e9da0e !important;
+}
+
 /*===================================
   Menu
   ===================================*/

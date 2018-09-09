@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <title>Chain Estate | A more efficient real estate market</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+
+        <script src="assets/js/modernizr.min.js"></script>
+          <!-- axios -->
+          <!-- https://github.com/axios/axios -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+         <!-- axios END -->
+        <script src="../../factom/api.js"></script>
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="text-center">
+                        <a href="real-estate-broker.html"><img class="navbar-brand logo" src="assets/images/chain-estate-dark.png"></a>
+                    </div>
+                </div>
+
+                <!-- Button mobile view to collapse sidebar menu -->
+                <nav class="navbar-custom">
+
+                    <ul class="list-inline float-right mb-0">
+
+                        <li class="list-inline-item notification-list hide-phone">
+                            <a class="nav-link waves-light waves-effect" href="#" id="btn-fullscreen">
+                                <i class="mdi mdi-crop-free noti-icon"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item notification-list">
+                            <a class="nav-link right-bar-toggle waves-light waves-effect" href="#">
+                                <i class="mdi mdi-dots-horizontal noti-icon"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <i class="mdi mdi-bell noti-icon"></i>
+                                <span class="badge badge-pink noti-icon-badge">4</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg" aria-labelledby="Preview">
+                                <!-- item-->
+                                <div class="dropdown-item noti-title">
+                                    <h5 class="font-16"><span class="badge badge-danger float-right">5</span>Notification</h5>
+                                </div>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-success"><i class="mdi mdi-comment-account"></i></div>
+                                    <p class="notify-details">Robert S. Taylor commented on Admin<small class="text-muted">1 min ago</small></p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info"><i class="mdi mdi-account"></i></div>
+                                    <p class="notify-details">New user registered.<small class="text-muted">1 min ago</small></p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-danger"><i class="mdi mdi-airplane"></i></div>
+                                    <p class="notify-details">Carlos Crouch liked <b>Admin</b><small class="text-muted">1 min ago</small></p>
+                                </a>
+
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item notify-all">
+                                    View All
+                                </a>
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                                <!-- item-->
+                                <div class="dropdown-item noti-title">
+                                    <h5 class="text-overflow"><small>Welcome ! John</small> </h5>
+                                </div>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-account"></i> <span>Profile</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-settings"></i> <span>Settings</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-lock-open"></i> <span>Lock Screen</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-logout"></i> <span>Logout</span>
+                                </a>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="float-left">
+                            <button class="button-menu-mobile open-left waves-light waves-effect">
+                                <i class="mdi mdi-menu"></i>
+                            </button>
+                        </li>
+                        <li class="hide-phone app-search">
+                            <form role="search" class="">
+                                <input type="text" placeholder="Search..." class="form-control">
+                                <a href=""><i class="fa fa-search"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+
+                </nav>
+
+            </div>
+            <!-- Top Bar End -->
+
+
+            <!-- ========== Left Sidebar Start ========== -->
+
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+                    <!--- Divider -->
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li>
+                                <a href="real-estate-broker.html" class="waves-effect waves-primary">
+                                    <i class="ti-home"></i><span> Dashboard </span>
+                                </a>
+                            </li>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect waves-primary">
+                                    <i class="ti-stats-up"></i><span> Charts </span> 
+                                    <span class="badge badge-primary pull-right">8</span> 
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li><a href="chart-flot.html">Flot Chart</a></li>
+                                    <li><a href="chart-morris.html">Morris Chart</a></li>
+                                    <li><a href="chart-chartist.html">Chartist chart</a></li>
+                                    <li><a href="chart-nvd3.html">Nvd3 charts</a></li>
+                                    <li><a href="chart-chartjs.html">Chartjs charts</a></li>
+                                    <li><a href="chart-peity.html">Peity Charts</a></li>
+                                    <li><a href="chart-sparkline.html">Sparkline Charts</a></li>
+                                    <li><a href="chart-other.html">Other Chart</a></li>
+                                </ul>
+                            </li>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect waves-primary">
+                                    <i class="ti-map"></i><span> Maps </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li><a href="map-google.html"> Google Maps</a></li>
+                                    <li><a href="map-vector.html"> Vector Maps</a></li>
+                                    <li><a href="map-mapael.html"> Mapael Maps</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="leaser.html" class="waves-effect waves-primary">
+                                    <i class="mdi mdi-account-multiple"></i><span> Leasers </span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <h4 class="page-title">Asset Profile</h4>
+                                    <ol class="breadcrumb float-right">
+                                        <li class="breadcrumb-item"><a href="#">Chain Estate</a></li>
+                                        <li class="breadcrumb-item active">Asset Profile</li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4">
+                                <div class="text-center card-box">
+                                    <div class="member-card">
+                                        <div class="thumb-xl member-thumb m-b-10 center-block">
+                                            <img src="assets/images/gallery/moganshan-road.jpg" class="thumb-img" alt="work-thumbnail">
+                                        </div>
+
+                                        <div class="">
+                                            <h5 class="m-b-5">Moganshan Road</h5>
+                                            <p class="text-muted">No.463, Office Building Moganshan Road, Shanghai, China</p>
+                                        </div>
+
+                                        <div class="text-left m-t-40">
+                                            <p class="text-muted font-13"><strong>Contact name:</strong> <span class="m-l-15">Mark A. McKnight</span></p>
+
+                                            <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">+44 (0)7952 149814</span></p>
+
+                                            <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">bruno@moganshan.com</span></p>
+
+                                            <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">China</span></p>
+                                        </div>
+
+                                        <ul class="social-links list-inline m-t-30">
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                </div> <!-- end card-box -->
+
+                            </div> <!-- end col -->
+
+
+                            <div class="col-lg-8 col-xl-9">
+                                <div class="">
+                                    <div class="card-box">
+                                        <ul class="nav nav-tabs tabs-bordered">
+                                            <li class="nav-item">
+                                                <a href="#home" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                                    About the building
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link active">
+                                                    Digital Assets Overview
+                                                </a>
+                                            </li>
+                                        </ul>
+
+
+                                        <div class="tab-content" id="vue_buildings_list">
+                                            <div class="tab-pane active" id="home">
+                                                <p class="m-b-5">Office Building Moganshan Road Chinese Building Development – design by David Chipperfield Architectspage updated 22 Oct 2016 with new images ; 24 Nov 2014  Office Building Moganshan Road in Hangzho Location: Hangzhou, China Design: David Chipperfield Architects The ten-storey office building is located in a diversely built area on Moganshan Road near Hangzhou’s tranquil Shuyhan Park.</p>
+                                            </div>
+
+                                            <div class="tab-pane active" id="profile">
+
+                                                <div class="row" v-for="(value,key) in asset_details">
+
+                                                    <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
+                                                        <div v-bind:class="['space_vacant', 'space_general', 'card', 'pt-1', 'pl-3']" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="height: 60px; margin: 5px; border: 2px solid rgb(0, 0, 0);">
+                                                        {{"Floor " + value1.floor + " (" + value1.size + " square meters)"}}<br/>
+                                                        {{"Status: " + ((value1.status == 0) ? "Vacant" : (value1.status == 1) ? "Occupied" : "Sublet Available")}}
+                                                        </div>
+
+
+                                                        <!-- 
+
+
+
+
+
+                                                    <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
+                                                        <div class="card" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="background-color: #3aa17e; height: 60px; margin: 5px; border: 2px solid rgb(1, 199, 132)">
+                                                        </div>
+
+
+
+                                                        -->
+
+
+
+<!-- Modal Asset Details-->
+<div class="modal fade applyAp" :id="'AssetDetails'+key+index1" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModal1Label1">Asset Details</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+                <div class="row">Floor: {{value[index1]['floor']}}</div>
+                <div class="row">Area in m²: {{value[index1]['size']}}</div>
+                 <div class="row">Price in rmb/m²: {{value[index1]['price']}}</div>
+                <br/>
+                <div><a target="_blank" :href="'https://rinkeby.etherscan.io/token/'+space_address+'?a='+ value[index1]['id']">View CEST on EtherScan</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" @Click="lease_space(value[index1]['id'])">Lease Space</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" :data-target="'#SplitAsset'+key+index1">Sublet Space</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- Modal END -->
+<!-- Modal Split Assset-->
+<div class="modal fade applyAp" :id="'SplitAsset'+key+index1" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModal1Label">Split Space for Subletting</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="input-group-prepend"> </div>
+            Area to Sublet: <input type="text" v-model="split_area" class="form-control" placeholder="m²" >
+            </input>
+            Price to sublet:
+            <input type="text" class="form-control" v-model="split_price" placeholder="rmb per m²" >
+            </input>
+            <p style="color:red;">Area before split: {{value[index1]['size']}}</p>
+              <p style="color:red;">Area after split: {{value[index1]['size'] - split_area}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="performe_split(value[index1]['id'],split_area, split_price)">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal END -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="settings">
+                                                <form role="form">
+                                                    <div class="form-group">
+                                                        <label for="FullName">Full Name</label>
+                                                        <input type="text" value="John Doe" id="FullName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Email">Email</label>
+                                                        <input type="email" value="first.last@example.com" id="Email" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Username">Username</label>
+                                                        <input type="text" value="john" id="Username" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Password">Password</label>
+                                                        <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="RePassword">Re-Password</label>
+                                                        <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="AboutMe">About Me</label>
+                                                        <textarea style="height: 125px" id="AboutMe" class="form-control">Loren gypsum dolor sit mate, consecrate disciplining lit, tied diam nonunion nib modernism tincidunt it Loretta dolor manga Amalia erst volute. Ur wise denim ad minim venial, quid nostrum exercise ration perambulator suspicious cortisol nil it applique ex ea commodore consequent.</textarea>
+                                                    </div>
+                                                    <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                    </div>
+                    <!-- end container -->
+                </div>
+                <!-- end content -->
+
+                <footer class="footer">
+                    2018 © Chain Estate <span class="hide-phone">- chainestate.com</span>
+                </footer>
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+            <!-- Right Sidebar -->
+            <div class="side-bar right-bar">
+                <div class="">
+                    <ul class="nav nav-tabs tabs-bordered nav-justified">
+                        <li class="nav-item">
+                            <a href="#home-2" class="nav-link active" data-toggle="tab" aria-expanded="false">
+                                Activity
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#messages-2" class="nav-link" data-toggle="tab" aria-expanded="true">
+                                Settings
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="home-2">
+                            <div class="timeline-2">
+                                <div class="time-item">
+                                    <div class="item-info">
+                                        <small class="text-muted">5 minutes ago</small>
+                                        <p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="time-item">
+                                    <div class="item-info">
+                                        <small class="text-muted">30 minutes ago</small>
+                                        <p><a href="" class="text-info">Lorem</a> commented your post.</p>
+                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+                                    </div>
+                                </div>
+
+                                <div class="time-item">
+                                    <div class="item-info">
+                                        <small class="text-muted">59 minutes ago</small>
+                                        <p><a href="" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
+                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+                                    </div>
+                                </div>
+
+                                <div class="time-item">
+                                    <div class="item-info">
+                                        <small class="text-muted">1 hour ago</small>
+                                        <p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
+                                    </div>
+                                </div>
+
+                                <div class="time-item">
+                                    <div class="item-info">
+                                        <small class="text-muted">3 hours ago</small>
+                                        <p><a href="" class="text-info">Lorem</a> commented your post.</p>
+                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+                                    </div>
+                                </div>
+
+                                <div class="time-item">
+                                    <div class="item-info">
+                                        <small class="text-muted">5 hours ago</small>
+                                        <p><a href="" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
+                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-pane" id="messages-2">
+
+                            <div class="row m-t-20">
+                                <div class="col-8">
+                                    <h5 class="m-0 font-15">Notifications</h5>
+                                    <p class="text-muted m-b-0"><small>Do you need them?</small></p>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <input type="checkbox" checked data-plugin="switchery" data-color="#3bafda" data-size="small"/>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-20">
+                                <div class="col-8">
+                                    <h5 class="m-0 font-15">API Access</h5>
+                                    <p class="m-b-0 text-muted"><small>Enable/Disable access</small></p>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <input type="checkbox" checked data-plugin="switchery" data-color="#3bafda" data-size="small"/>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-20">
+                                <div class="col-8">
+                                    <h5 class="m-0 font-15">Auto Updates</h5>
+                                    <p class="m-b-0 text-muted"><small>Keep up to date</small></p>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <input type="checkbox" checked data-plugin="switchery" data-color="#3bafda" data-size="small"/>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-20">
+                                <div class="col-8">
+                                    <h5 class="m-0 font-15">Online Status</h5>
+                                    <p class="m-b-0 text-muted"><small>Show your status to all</small></p>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <input type="checkbox" checked data-plugin="switchery" data-color="#3bafda" data-size="small"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Right-bar -->
+
+        </div>
+        <!-- END wrapper -->
+
+
+
+        <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- Plugins  -->
+        <script src="https://unpkg.com/marked@0.3.6"></script>
+        <script src="https://unpkg.com/lodash@4.16.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <script src="../bundle.js" type="text/javascript"></script>
+
+    </body>
+</html>
