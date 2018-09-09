@@ -13,6 +13,7 @@
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/chainlease.css" rel="stylesheet" type="text/css">
 
     </head>
 
@@ -53,7 +54,7 @@
                             <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
                                 <i class="mdi mdi-bell noti-icon"></i>
-                                <span class="badge badge-pink noti-icon-badge">4</span>
+                                <span class="badge badge-pink noti-icon-badge">1</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg" aria-labelledby="Preview">
                                 <!-- item-->
@@ -90,7 +91,7 @@
                         <li class="list-inline-item dropdown notification-list">
                             <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                                <img src="assets/images/avatar-1.jpg" alt="user" class="rounded-circle">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
                                 <!-- item-->
@@ -210,7 +211,7 @@
                         <!-- Page-Title -->
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="page-title-box">
+                                <div class="page-title-box" id="leasercard">
                                     <h4 class="page-title">Chain Estate | Dashboard Leaser</h4>
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="#">Chain Estate</a></li>
@@ -220,59 +221,39 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <button type="button" class="btn btn-sm btn-primary waves-effect waves-light mb-4">
-                                    <i class="mdi mdi-plus-circle"></i> Add New
-                                </button>
-                            </div>
-                            <div class="col-sm-8">
-                                <form class="form-inline float-right">
-                                    <div class="form-group">
-                                        <label for="sort-select">Sort :</label>
-                                        <select class="form-control ml-2 form-control-sm" id="sort-select">
-                                            <option>Date</option>
-                                            <option>Name</option>
-                                            <option>Revenue</option>
-                                            <option>Employees</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div><!-- end col-->
-                        </div>
 
   <div class="row">
                             <div class="col-md-4">
-                                <div class="card-box">
+                                <div class="card-box" id="leasercard">
                                         <div class="gal-detail">
                                             <a href="#" class="image-popup" title="Jin-Mao-Tower">
-                                                <img src="assets/images/gallery/office01.jpg" class="thumb-img" alt="work-thumbnail">
+                                                <img src="assets/images/gallery/Jin-Mao-Tower.jpg" class="thumb-img" alt="work-thumbnail">
                                                 <h4 class="text-center">Jin Mao Tower</h4>
                                                 <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>88 Century Ave, LuJiaZui, Pudong Xinqu, China, 200000</small></p>
+                                                <p class="text-muted text-center"><small>88 Century Ave, LuJiaZui, Pudong Xinqu, China</small></p>
                                             </a>
                                         </div>
                                 </div>
                             </div><!-- end col -->
 
                             <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
+                                <div class="card-box" id="leasercard">
+                                        <div class="gal-detail" >
                                             <a href="#" class="image-popup" title="IFFG Office-Hangzhou">
                                                 <img src="assets/images/gallery/IFFG Office-Hangzhou.jpg" class="thumb-img" alt="work-thumbnail">
                                                 <h4 class="text-center">IFFG Office - Hangzhou</h4>
                                                 <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>IFFG Office-Hangzhou, Shanghai Shi, China, 200000</small></p>
+                                                <p class="text-muted text-center"><small>IFFG Office-Hangzhou, Shanghai Shi, China</small></p>
                                             </a>
                                         </div>
                                 </div>
                             </div><!-- end col -->
                         <div class="col-md-4">
-                                <div class="card-box">
+                                <div class="card-box" id="leasercard">
                                         <div class="gal-detail">
-                                            <a href="moganshan-road.html" class="image-popup" title="Moganshan Road">
-                                                <img src="assets/images/gallery/office03.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">Moganshan Road</h4>
+                                            <a href="moganshan-road-leaser.html" class="image-popup" title="Moganshan Road">
+                                                <img src="assets/images/gallery/moganshan-road.jpg" class="thumb-img" alt="work-thumbnail">
+                                                <h4 class="text-center">Office Building No.463</h4>
                                                 <div class="ga-border"></div>
                                                 <p class="text-muted text-center"><small>No.463, Office Building Moganshan Road, Shanghai, China</small></p>
                                             </a>
@@ -280,21 +261,7 @@
                                 </div>
                             </div><!-- end col -->
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
-                                            <a href="#" class="image-popup" title="Hangzhou Xintiandi Office Towers">
-                                                <img src="assets/images/gallery/office04.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">Hangzhou Xintiandi Office Towers</h4>
-                                                <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>Hangzhou Xintiandi Office Towers, China, 200000</small></p>
-                                            </a>
-                                        </div>
-                                </div>
-                            </div><!-- end col -->
 
-                          
 
 
 

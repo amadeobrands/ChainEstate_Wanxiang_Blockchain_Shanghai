@@ -13,6 +13,14 @@
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/chainlease.css" rel="stylesheet" type="text/css">
+
+        <script src="assets/js/modernizr.min.js"></script>
+          <!-- axios -->
+          <!-- https://github.com/axios/axios -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+         <!-- axios END -->
+        <script src="../../factom/api.js"></script>
 
     </head>
 
@@ -28,7 +36,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="#"><img class="navbar-brand logo" src="assets/images/chain-estate-dark.png"></a>
+                        <a href="real-estate-broker.html"><img class="navbar-brand logo" src="assets/images/chain-estate-dark.png"></a>
                     </div>
                 </div>
 
@@ -53,7 +61,7 @@
                             <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
                                 <i class="mdi mdi-bell noti-icon"></i>
-                                <span class="badge badge-pink noti-icon-badge">4</span>
+                                <span class="badge badge-pink noti-icon-badge">1</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg" aria-labelledby="Preview">
                                 <!-- item-->
@@ -90,7 +98,7 @@
                         <li class="list-inline-item dropdown notification-list">
                             <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                                <img src="assets/images/avatar-1.jpg" alt="user" class="rounded-circle">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
                                 <!-- item-->
@@ -210,120 +218,200 @@
                         <!-- Page-Title -->
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="page-title-box">
-                                    <h4 class="page-title">Chain Estate | Dashboard Real Estate Owner</h4>
+                                <div class="page-title-box" id="leasercard">
+                                    <h4 class="page-title">Asset Profile</h4>
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="#">Chain Estate</a></li>
+                                        <li class="breadcrumb-item active">Asset Profile</li>
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                         </div>
 
+
                         <div class="row">
-                            <div class="col-sm-4">
-                                <button type="button" class="btn btn-sm btn-primary waves-effect waves-light mb-4">
-                                    <i class="mdi mdi-plus-circle"></i> Add New
-                                </button>
-                            </div>
-                            <div class="col-sm-8">
-                                <form class="form-inline float-right">
-                                    <div class="form-group">
-                                        <label for="sort-select">Sort :</label>
-                                        <select class="form-control ml-2 form-control-sm" id="sort-select">
-                                            <option>Date</option>
-                                            <option>Name</option>
-                                            <option>Revenue</option>
-                                            <option>Employees</option>
-                                        </select>
+                            <div class="col-xl-3 col-lg-4">
+                                <div class="text-center card-box">
+                                    <div class="member-card">
+                                        <div class="thumb-xl member-thumb m-b-10 center-block">
+                                            <img src="assets/images/gallery/moganshan-road.jpg" class="thumb-img" alt="work-thumbnail">
+                                        </div>
+
+                                        <div class="">
+                                            <h5 class="m-b-5">Office Building No.463</h5>
+                                            <p class="text-muted">No.463, Office Building Moganshan Road, Shanghai, China</p>
+                                        </div>
+
+                                        <div class="text-left m-t-40">
+                                            <p class="text-muted font-13"><strong>Contact name:</strong> <span class="m-l-15">Mark A. McKnight</span></p>
+
+                                            <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">+44 (0)7952 149814</span></p>
+
+                                            <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">bruno@moganshan.com</span></p>
+
+                                            <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">China</span></p>
+                                        </div>
+
+                                        <ul class="social-links list-inline m-t-30">
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a>
+                                            </li>
+                                        </ul>
+
                                     </div>
-                                </form>
-                            </div><!-- end col-->
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
-                                            <a href="#" class="image-popup" title="Jin-Mao-Tower">
-                                                <img src="assets/images/gallery/Jin-Mao-Tower.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">Jin Mao Tower</h4>
-                                                <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>88 Century Ave, LuJiaZui, Pudong Xinqu, China</small></p>
-                                            </a>
+                                </div> <!-- end card-box -->
+
+                            </div> <!-- end col -->
+
+
+                            <div class="col-lg-8 col-xl-9">
+                                <div class="">
+                                    <div class="card-box">
+                                        <ul class="nav nav-tabs tabs-bordered">
+                                            <li class="nav-item">
+                                                <a href="#home" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                                    About the building
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link active">
+                                                    Digital Assets Overview
+                                                </a>
+                                            </li>
+                                        </ul>
+
+
+
+                                        <div class="tab-content" id="vue_buildings_list">
+                                            <div class="tab-pane" id="home">
+                                                <p class="m-b-5">Office Building Moganshan Road Chinese Building Development – design by David Chipperfield Architectspage updated 22 Oct 2016 with new images ; 24 Nov 2014  Office Building Moganshan Road in Hangzho Location: Hangzhou, China Design: David Chipperfield Architects The ten-storey office building is located in a diversely built area on Moganshan Road near Hangzhou’s tranquil Shuyhan Park.</p>
+                                            </div>
+
+                                            <div class="tab-pane active" id="profile">
+
+                                                <div class="row" v-for="(value,key) in asset_details">
+
+                                                    <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
+                                                        <div class="card" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="background-color: rgb(226, 138, 6); height: 60px; margin: 5px; border: 2px solid rgb(117, 26, 26);">
+                                                        </div>
+
+
+                                                        <!-- 
+
+
+
+
+
+                                                    <div :class="'col-md-'+12/asset_details[key].length"   v-for="(value1,index1) in asset_details[key]">
+                                                        <div class="card" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="background-color: #3aa17e; height: 60px; margin: 5px; border: 2px solid rgb(1, 199, 132)">
+                                                        </div>
+
+
+
+                                                        -->
+
+
+
+<!-- Modal Asset Details-->
+<div class="modal fade applyAp" :id="'AssetDetails'+key+index1" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModal1Label1">Asset Details</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="row">Area in m²: {{value[index1]['m2']}}</div>
+              <div class="row">{{'prise in m²'}}</div>
+              <div class="row">{{'some other data'}}</div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" :data-target="'#SplitAsset'+key+index1">Define Asset Split</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal END -->
+<!-- Modal Split Assset-->
+<div class="modal fade applyAp" :id="'SplitAsset'+key+index1" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModal1Label">Splitting the the digital asset</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="input-group-prepend"> </div>
+            <input type="text" class="form-control" placeholder="m²" >
+            </input>
+            <input type="text" class="form-control" v-model="split_area" placeholder="price per m²" >
+            </input>
+            <p style="color:red;">Area before split: {{value[index1]['m2']}}</p>
+              <p style="color:red;">Area after split: {{value[index1]['m2'] - split_area}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="performe_split(key,index1,{'m2':split_area})">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abort</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal END -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="settings">
+                                                <form role="form">
+                                                    <div class="form-group">
+                                                        <label for="FullName">Full Name</label>
+                                                        <input type="text" value="John Doe" id="FullName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Email">Email</label>
+                                                        <input type="email" value="first.last@example.com" id="Email" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Username">Username</label>
+                                                        <input type="text" value="john" id="Username" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Password">Password</label>
+                                                        <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="RePassword">Re-Password</label>
+                                                        <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="AboutMe">About Me</label>
+                                                        <textarea style="height: 125px" id="AboutMe" class="form-control">Loren gypsum dolor sit mate, consecrate disciplining lit, tied diam nonunion nib modernism tincidunt it Loretta dolor manga Amalia erst volute. Ur wise denim ad minim venial, quid nostrum exercise ration perambulator suspicious cortisol nil it applique ex ea commodore consequent.</textarea>
+                                                    </div>
+                                                    <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
+                                                </form>
+                                            </div>
                                         </div>
+                                    </div>
                                 </div>
-                            </div><!-- end col -->
 
-                            <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
-                                            <a href="#" class="image-popup" title="IFFG Office-Hangzhou">
-                                                <img src="assets/images/gallery/IFFG Office-Hangzhou.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">IFFG Office - Hangzhou</h4>
-                                                <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>IFFG Office-Hangzhou, Shanghai Shi, China</small></p>
-                                            </a>
-                                        </div>
-                                </div>
-                            </div><!-- end col -->
-                        <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
-                                            <a href="moganshan-road.html" class="image-popup" title="Moganshan Road">
-                                                <img src="assets/images/gallery/moganshan-road.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">Moganshan Road</h4>
-                                                <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>No.463, Office Building Moganshan Road, Shanghai, China</small></p>
-                                            </a>
-                                        </div>
-                                </div>
-                            </div><!-- end col -->
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
-                                            <a href="#" class="image-popup" title="Hangzhou Xintiandi Office Towers">
-                                                <img src="assets/images/gallery/Hangzhou-Xintiandi-Office-Towers.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">Hangzhou Xintiandi Office Towers</h4>
-                                                <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>Hangzhou Xintiandi Office Towers, China</small></p>
-                                            </a>
-                                        </div>
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
-                                            <a href="#" class="image-popup" title="One-Lujiazui">
-                                                <img src="assets/images/gallery/One-Lujiazui.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">One Lujiazui</h4>
-                                                <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>Lujiazui Ring Rd, LuJiaZui, Pudong Xinqu, Shanghai Shi, China</small></p>
-                                            </a>
-                                        </div>
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-md-4">
-                                <div class="card-box">
-                                        <div class="gal-detail">
-                                            <a href="#" class="image-popup" title="Hongkou-Technology-and-Financial-Building">
-                                                <img src="assets/images/gallery/Hongkou-Technology-and-Financial-Building.jpg" class="thumb-img" alt="work-thumbnail">
-                                                <h4 class="text-center">Hongkou Technology and Financial Building</h4>
-                                                <div class="ga-border"></div>
-                                                <p class="text-muted text-center"><small>No.463 Tanggu Road, Hongkou District, Shanghai, China</small></p>
-                                            </a>
-                                        </div>
-                                </div>
-                            </div><!-- end col -->
-
-
-
-
-
+                            </div> <!-- end col -->
                         </div>
                         <!-- end row -->
 
@@ -466,9 +554,64 @@
             var resizefunc = [];
         </script>
 
-
-        <script src="../bundle.js" type="text/javascript"></script>
         <!-- Plugins  -->
+        <script src="https://unpkg.com/marked@0.3.6"></script>
+        <script src="https://unpkg.com/lodash@4.16.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+        <script src="assets/js/bootstrap.min.js"></script>
+<script>
+    var temp = ChainEstateApp.spaces;
+    var acts_view = new Vue({
+      el: '#vue_buildings_list',
+      data: {
+        buildings_list :[[2,1],[0,2],[0]],
+        asset_details : {
+          0: [{'m2': 1000}, {'m2': 1002}],
 
+          1: [{'m2': 2000}, {'m2': 1003}],
+
+          2: [{'m2': 3000}, {'m2': 1004}],
+
+          3: [{'m2': 3000}, {'m2': 1004}],
+
+          4: [{'m2': 3000}, {'m2': 1004}],
+
+          5: [{'m2': 3000}, {'m2': 1004}],
+
+          6: [{'m2': 3000}, {'m2': 1004}],
+
+          7: [{'m2': 3000}, {'m2': 1004}],
+
+          8: [{'m2': 3000}, {'m2': 1004}],
+
+          9: [{'m2': 3000}, {'m2': 1004}],
+
+          10: [{'m2': 3000}, {'m2': 1004}],
+        },
+        split_area:0,
+      },
+      methods: {
+        performe_split:function (floor,idx,new_details) {
+          this.asset_details[floor].push(
+              new_details
+
+
+          );
+          get_info_factom({
+            url: '5c173b601be14c6210b3115f8e7a6bf3',
+          }).then(function (response) {
+            let data = response.data;
+            console.log('factom:',data);
+          }).catch(error => {
+            console.log(error);
+          });
+          this.asset_details[floor][idx]['m2']=new_details['m2']
+        }
+      }
+    })
+</script>
     </body>
 </html>
