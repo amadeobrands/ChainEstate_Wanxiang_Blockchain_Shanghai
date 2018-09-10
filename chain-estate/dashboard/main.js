@@ -203,10 +203,6 @@ window.ChainEstateApp = {
             if (!ad[item.floor])
                 ad[item.floor] = [];
             ad[item.floor].push(item);
-
-            // Todo: Temporary for testing
-            if (item.id == 5)
-                item.status = 1;
         });
 
         console.log(ad);
@@ -218,6 +214,7 @@ window.ChainEstateApp = {
                     asset_details : ad,
                     space_address : self.spaceAddress,
                     building_address: self.buildingAddress,
+                    account_address: self.account,
                     split_area:0,
                     split_price:0
                 },

@@ -301,7 +301,7 @@
 
                                                     <div :class="'col-md-'+(value1.size/200)"   v-for="(value1,index1) in asset_details[key]">
                                                         <div v-bind:class="[(value1.status == 0) ? 'space_vacant' : (value1.status == 1) ? 'space_occupied' : 'space_sublet', 'space_general', 'card', 'pt-1', 'pl-3']" data-toggle="modal" :data-target="'#AssetDetails'+key+index1" style="height: 60px; margin: 5px; border: 2px solid rgb(0, 0, 0);">
-                                                        {{"Floor " + value1.floor + " (" + value1.size + " square meters)"}}<br/>
+                                                        {{"Floor " + value1.floor + " (" + value1.size + " sqm @ " + value1.price + "rmb per sqm)"}}<br/>
                                                         {{"Status: " + ((value1.status == 0) ? "Vacant" : (value1.status == 1) ? "Occupied" : "Sublet Available")}}
                                                         </div>
 
@@ -335,14 +335,18 @@
                 <div class="row">Floor: {{value[index1]['floor']}}</div>
                 <div class="row">Area in m²: {{value[index1]['size']}}</div>
                  <div class="row">Price in rmb/m²: {{value[index1]['price']}}</div>
+                 <div class="row">Status: {{(value[index1]['status']==0) ? "Vacant" : (value[index1]['status']==1) ? "Occupied" : "Sublet"}}</div>
+                 <div class="row">Leased by: {{(value[index1]['status']!=1) ? "N/A" : (value[index1]['leasee'] == account_address) ? "Me" : value[index1]['leasee']}}</div>
                 <br/>
                 <div><a target="_blank" :href="'https://rinkeby.etherscan.io/token/'+space_address+'?a='+ value[index1]['id']">View CEST on EtherScan</a></div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" @Click="lease_space(value[index1]['id'])">Lease Space</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" :data-target="'#SplitAsset'+key+index1">Sublet Space</button>
+        <button v-if="value[index1]['status']!=1" type="button" class="btn btn-secondary" data-dismiss="modal" @Click="lease_space(value[index1]['id'])">Lease Space</button>
+
+        <button v-if="value[index1]['status']==1 && value[index1]['leasee']==account_address" type="button" class="btn btn-secondary" data-toggle="modal" :data-target="'#SplitAsset'+key+index1">Sublet Space</button>
+
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>
     </div>
