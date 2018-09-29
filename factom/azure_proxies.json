@@ -1,29 +1,13 @@
 {
     "$schema": "http://json.schemastore.org/proxies",
     "proxies": {
-        "factom": {
+        "chicago": {
             "matchCondition": {
-                "route": "/factom_get/{rawDataHash}",
-                "methods": [
-                    "GET"
-                ]
+                "route": "/chicago/{*v0}"
             },
-            "backendUri": "https://api.wancloud.io/apis/bcs/entry/{rawDataHash}",
+            "backendUri": "https://api-2445581893456.production.gw.apicast.io/v2/{v0}",
             "requestOverrides": {
-                "backend.request.method": "get",
-                "backend.request.headers.user-key": "<wancloud-TOKEN>"
-            }
-        },
-        "factom_post": {
-            "matchCondition": {
-                "route": "factom_post",
-                "methods": [
-                    "POST"
-                ]
-            },
-            "backendUri": "https://api.wancloud.io/apis/bcs/entry/",
-            "requestOverrides": {
-                "backend.request.headers.user-key": "<wancloud-TOKEN>"
+                "backend.request.headers.user-key": "fae3c3d1811106876b2b4bde9f5c24f6"
             }
         }
     }
